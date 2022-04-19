@@ -8,7 +8,7 @@ export const LanguageConsumer = LanguageContext.Consumer;
 
 const LanguageProvider = ({ children, user }) => {
   const [languages, setLanguages] = useState([])
-  const [pagination, setPagination] = useState(0)
+  const [pagination, setPagination] = useState(1)
   const [headers, setHeaders] = useState({})
   const [flash, setFlash] = useState(null)
 
@@ -17,8 +17,8 @@ const LanguageProvider = ({ children, user }) => {
       .then( res => {
         const { headers, data } = res;
         const totalPages = Math.ceil(headers['x-total'] / headers['x-per-page']);
-        setLanguages(data)
         setPagination(totalPages)
+        setLanguages(data)
         setHeaders(headers)
       })
       .catch( err => {
