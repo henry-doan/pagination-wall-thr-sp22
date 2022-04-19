@@ -1,4 +1,4 @@
-class Api::LanguagesController < ApplilanguageionController
+class Api::LanguagesController < ApplicationController
   before_action :set_user
   before_action :set_language, only: [:show, :update, :destroy ]
 
